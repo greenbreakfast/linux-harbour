@@ -61,10 +61,8 @@ sh tunnel.sh
 
 Spin up the container:
 ```
-sh run.sh <IP ADDR>
+sh run.sh
 ```
-Where `<IP ADDR>` is your current IP address.
-
 This will open an XQuartz Chrome window.
 
 
@@ -79,4 +77,4 @@ to automatically remove the image when it shutsdown.
 
 # To Do
 
-* Implement automatic IP address discovery
+* Implement automatic tunnel creation (+destruction)

@@ -1,22 +1,11 @@
 #!/bin/sh
 
 ## Run a docker container
-##  requires argument: ip address
-
-# ensure argument exists
-if [ "$1" == "" ]; then
-  echo "ERROR: expected IP address as argument"
-  exit
-fi
-
-# parse the ip argument
-ipAddr=$1
-shift
 
 # set the default options
 runOpt="-d"
 
-# parse additional arguments
+# parse any arguments
 while [ "$1" != "" ]; do
   if  [ "$1" == "rm" ] ||
       [ "$1" == "remove" ]; then
@@ -24,6 +13,9 @@ while [ "$1" != "" ]; do
         shift
   fi
 done
+
+# parse the ip address
+ipAddr=$(ipconfig getifaddr en1)
 
 
 # echo "> Creating tunnel"
